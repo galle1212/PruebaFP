@@ -68,8 +68,6 @@ if __name__ == '__main__':
 #Test de la funcion 4
     print(numeroS(4,2))
 #Test de la funcion 5
-    f=lambda x:2*x**2
-    f_derivada=lambda x:4*x
-    print(metodo_newton(f,f_derivada,3,0.001))
+    print(metodo_newton(f=lambda x:2*x**2,f_derivada=lambda x:4*x,3,0.001))
     
     
