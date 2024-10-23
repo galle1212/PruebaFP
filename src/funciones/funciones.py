@@ -16,7 +16,7 @@ def producto(n:int,k:int)->float:
     else:
         print("El número n debe ser mayor o igual que k")
 
-
+        
 #Funcion 2
 def producto_secuencia(a1:float,r:float,k:int)->float:
     lista:list[float] = list()
@@ -68,6 +68,7 @@ if __name__ == '__main__':
 #Test de la funcion 4
     print(numeroS(4,2))
 #Test de la funcion 5
-    print(metodo_newton(f=lambda x:2*x**2,f_derivada=lambda x:4*x,3,0.001))
-    
+    f=lambda x:2*x**2
+    f_derivada=lambda x:4*x
+    print(metodo_newton(f,f_derivada,3,0.001))
     
