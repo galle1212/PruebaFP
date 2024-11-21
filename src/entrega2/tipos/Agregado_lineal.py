@@ -65,12 +65,12 @@ class Agregado_lineal(ABC, Generic[E]):
 
     def remove(self) -> E:
         if self.is_empty:
-            raise IndexError("No se puede eliminar de un agregado vacío.")
+            raise OverflowError("No se puede eliminar de un agregado vacío.")
         return self._elements.pop(0)
         """
         Elimina el primer elemento de la colección.
         :return: Elemento eliminado
-        :raise IndexError: Si la colección está vacía
+        :raise OverflowError: Si la colección está vacía
         """
 
     def remove_all(self) -> List[E]:
@@ -82,9 +82,40 @@ class Agregado_lineal(ABC, Generic[E]):
         :return: Lista eliminada
         """
 
+    def contains(self, e: E) -> bool:
+        """
+        Verifica si un elemento está en el agregado.
+        :param e: Elemento a buscar.
+        :return: True si el elemento está en el agregado, False en caso contrario.
+        """
+        return e in self._elements
 
+    def find(self, func: Callable[[E], bool]) -> E | None:
+        """
+        Devuelve el primer elemento que cumple con la condición especificada por func.
+        :param func: Función que determina la condición.
+        :return: El primer elemento que cumple la condición o None si no se encuentra ninguno.
+        """
+        for element in self._elements:
+            if func(element):
+                return element
+        return None
 
-
+    def filter(self, func: Callable[[E], bool]) -> List[E]:
+        """
+        Filtra los elementos según la condición especificada por func.
+        :param func: Función que determina la condición.
+        :return: Lista de elementos que cumplen la condición.
+        """
+        lista_filtrados = [element for element in self._elements if func(element)]
+        return lista_filtrados
+    
+    def __str__(self):
+        """
+        Representación como cadena del agregado.
+        """
+        elementos = ", ".join(map(str, self._elements))
+        return f"AgregadoLineal[{elementos}]"
 
 
 if __name__=="__main__":
