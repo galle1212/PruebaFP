@@ -104,7 +104,7 @@ class Grafo(Generic[V, E]):
         """
 
     def subgraph(self, vertices: Set[V]) -> Grafo[V, E]:
-        subgrafo = Grafo(self.es_dirigido)
+        subgrafo:Grafo[V,E] = Grafo(self.es_dirigido)
         for vertice in vertices:
             if vertice in self.adyacencias:
                 subgrafo.add_vertex(vertice)
@@ -123,7 +123,7 @@ class Grafo(Generic[V, E]):
         if not self.es_dirigido:
             raise ValueError("El grafo no es dirigido. No se puede invertir.")
         
-        grafo_inverso = Grafo(self.es_dirigido)
+        grafo_inverso:Grafo[V,E] = Grafo(self.es_dirigido)
         for origen, destinos in self.adyacencias.items():
             for destino, arista in destinos.items():
                 grafo_inverso.add_edge(destino, origen, arista)

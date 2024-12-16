@@ -104,11 +104,12 @@ if __name__ == '__main__':
 
     # Vamos a representar el grafo completo de la red social
     rrss.draw("Red Social", lambda_vertice=lambda v: f"{v.nombre} {v.apellidos}", lambda_arista=lambda e: e.id)
-    
+    rrss.draw()
     
     camino = bfs(rrss, rrss.usuarios_dni['25143909I'], rrss.usuarios_dni['87345530M'])
     print(f"El camino más corto desde 25143909I hasta 87345530M es: {camino}")    
     g_camino = rrss.subgraph(camino)
     
     g_camino.draw("Caminos", lambda_vertice=lambda v: f"{v.dni}", lambda_arista=lambda e: e.id)
+    
     

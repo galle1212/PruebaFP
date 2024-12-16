@@ -163,25 +163,5 @@ def reconstruir_camino(predecesores: Dict[V,Optional[V]], destino: V) -> List[V]
 
 
 if __name__ == '__main__':
-    # Crear un grafo dirigido
-    grafo = Grafo.of(es_dirigido=True)
-    grafo.add_vertex("A")
-    grafo.add_vertex("B")
-    grafo.add_vertex("C")
-    grafo.add_vertex("D")
-    grafo.add_edge("A", "B", 5)
-    grafo.add_edge("B", "C", 3)
-    grafo.add_edge("A", "D", 3)
-    grafo.add_edge("D", "C", 2)
-    grafo.add_edge("B", "D", 3)
 
 
-    print(grafo)
-    # Dibujar el grafo
-    grafo.draw(titulo="Mi Grafo Dirigido")
-    
-    caminodfs = dfs(grafo,"A","C")
-    print(caminodfs)
-
-    caminobfs = bfs(grafo,"A","C")
-    print(caminobfs)
