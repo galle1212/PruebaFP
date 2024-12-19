@@ -162,6 +162,3 @@ def reconstruir_camino(predecesores: Dict[V,Optional[V]], destino: V) -> List[V]
     """
 
 
-if __name__ == '__main__':
-
-
